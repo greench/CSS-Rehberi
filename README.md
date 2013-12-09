@@ -22,43 +22,43 @@ Birçok geliştirici ile birlikte büyük ve uzun vadeli projeler üzerinde çal
 
 gerekmektedir. Bu ideali gerçekleştirmek için uygulanması gereken çeşitli teknikler bulunmaktadır. 
 
-Bu dökümanın ilk bölümünde sözdizimi (syntax), biçim (formatting) ve CSS yapısı ile ilgileneceğiz, ikinci bölümde ise yaklaşım, akılcı bakış ve CSS yazma ve mimarisine yönelik fikirler ile ilgileneceğiz. Heyecan verici, huh?
+Bu dökümanın ilk bölümünde sözdizimi (syntax), biçim (formatting) ve CSS yapısı ile ilgileneceğiz, ikinci bölümde ise yaklaşım, akılcı bakış ve CSS yazma ve mimarisine yönelik fikirler ile ilgileneceğiz. Heyecan verici, di mi?
 
 
 ## İçerik
 
-* [CSS döküman yapısı](#css-dokuman-yapisi)
+* [CSS döküman yapısı](#$todo)
   * [Genel](#genel)
-  * [Tek ve çok dosya karşılaştırması](#tek-ve-cok-dosya-karsilastirmasi)
-  * [İçindekiler](#icindekiler)
-  * [Bölüm başlıkları](#bolum-basliklari)
-* [Source order](#source-order)
-* [Anatomy of rulesets](#anatomy-of-rulesets)
-* [Naming conventions](#naming-conventions)
-  * [JS hooks](#js-hooks)
-  * [Internationalisation](#internationalisation)
-* [Comments](#comments)
-  * [Comments on steroids](#comments-on-steroids)
-    * [Quasi-qualified selectors](#quasi-qualified-selectors)
-    * [Tagging code](#tagging-code)
-    * [Object/extension pointers](#objectextension-pointers)
-* [Writing CSS](#writing-css)
-* [Building new components](#building-new-components)
-* [OOCSS](#oocss)
-* [Layout](#layout)
-* [Sizing UIs](#sizing-uis)
-  * [Font sizing](#font-sizing)
-* [Shorthand](#shorthand)
-* [IDs](#ids)
-* [Selectors](#selectors)
-  * [Over qualified selectors](#over-qualified-selectors)
-  * [Selector performance](#selector-performance)
-* [CSS selector intent](#css-selector-intent)
+  * [Tek ve çok dosya karşılaştırması](#$todo)
+  * [İçindekiler](#$todo)
+  * [Bölüm başlıkları](#$todo)
+* [Kaynağa göre sıralama](#$todo)
+* [Kural Setleri](#$todo)
+* [İsimlendirme Düzeni](#$todo)
+  * [JS hooks](#$todo)
+  * [Internationalisation](#$todo)
+* [Comments](#$todo)
+  * [Comments on steroids](#$todo)
+    * [Quasi-qualified selectors](#$todo)
+    * [Tagging code](#$todo)
+    * [Object/extension pointers](#$todo)
+* [Writing CSS](#$todo)
+* [Building new components](#$todo)
+* [OOCSS](#$todo)
+* [Layout](#$todo)
+* [Sizing UIs](#$todo)
+  * [Font sizing](#$todo)
+* [Shorthand](#$todo)
+* [IDs](#$todo)
+* [Selectors](#$todo)
+  * [Over qualified selectors](#$todo)
+  * [Selector performance](#$todo)
+* [CSS selector intent](#$todo)
 * [`!important`](#important)
-* [Magic numbers and absolutes](#magic-numbers-and-absolutes)
-* [Conditional stylesheets](#conditional-stylesheets)
-* [Debugging](#debugging)
-* [Preprocessors](#preprocessors)
+* [Magic numbers and absolutes](#$todo)
+* [Conditional stylesheets](#$todo)
+* [Debugging](#$todo)
+* [Preprocessors](#$todo)
 
 ---
 
@@ -131,48 +131,45 @@ Bu boşluk hızlıca scroll ettiğimizde bölüm sonlarının farkedilebilirlir 
 Eğer çoklu ve içe çağrılan stil dosyaları ile çalışıyorsunuz, her bir dosya için bölüm başlığı oluşturarak başlayın fakat bu durumda bölümler arası boşluk kullanmanıza gerek yoktur.
 
 
-## Source order
+## Kaynağa göre sıralama
 
-Try and write stylesheets in specificity order. This ensures that you take full
-advantage of inheritance and CSS’ first <i>C</i>; the cascade.
+Stil kodlarınızı kullanım sıranıza göre yazmaya çalışın. 
 
-A well ordered stylesheet will be ordered something like this:
+Try and write stylesheets in specificity order. Bu sadece kalıtım (inheritance) ve CSS'in <i>C</i>i olan basamaklı dizilimden (cascade) kelimenin tam anlamıyla faydalanmanızı sağlar.
 
-1. **Reset** – ground zero.
-2. **Elements** – unclassed `h1`, unclassed `ul` etc.
-3. **Objects and abstractions** — generic, underlying design patterns.
-4. **Components** – full components constructed from objects and their
-   extensions.
-5. **Style trumps** – error states etc.
+Sıralaması iyi yapılmış bir stil dosyası örneği:
 
-This means that—as you go down the document—each section builds upon and
-inherits sensibly from the previous one(s). There should be less undoing of
-styles, less specificity problems and all-round better architected stylesheets.
+1. **Normalize** – tarayıcıları normalleştirme.
+2. **Elementler** – genel `h1`, `ul` özellikleri gibi
+3. **Objeler ve ortak sınıflar** — genel ve temel tasarım örüntüleri (design patterns)
+4. **Bileşenler** – bileşenler ve bileşenleri meydana getiren objeler ve uzantıları
+5. **Diğer stiller** – hata durumları gibi.
 
-For further reading I cannot recommend Jonathan Snook’s
-[SMACSS](http://smacss.com) highly enough.
+Bunun anlamı, dökümanda aşağı indikçe her bölüm mantıklı bir şekilde kalıtım sırasına göre oluşmuş olacaktır. Böylece daha az felaketle, seçici sorunlarıyla veya olası problemleri çevresinden dolaşarak çözmeye gerek kalmadan daha iyi bir CSS yapısı kurmuş olacaksınız.
 
-## Anatomy of rulesets
+Daha fazla bilgi için Jonathan Snook’un [SMACSS](http://smacss.com) isimli kitabını inceleyebilirsiniz.
 
-    [selector]{
-        [property]:[value];
-        [<- Declaration ->]
+## Kural Setleri
+
+    [secici]{
+        [ozellik]:[deger];
+        [<- ifade ->]
     }
 
-I have a number of standards when structuring rulesets.
+Kural setlerini oluştururken kullandığım standartlar:
 
-* Use hyphen delimited class names (except for BEM notation,
-  [see below](#naming-conventions))
-* 4 space indented
-* Multi-line
-* Declarations in relevance (NOT alphabetical) order
-* Indent vendor prefixed declarations so that their values are aligned
-* Indent our rulesets to mirror the DOM
-* Always include the final semi-colon in a ruleset
+* Tire ile ayrılmış class isimleri kullanın (BEM isimlendirme metolojisi hariç,
+  [aşağıya bakınız](#$todo)).
+* 4 boşluk girinti (indent) bırakın.
+* Her satırda bir özellik tanımlayın.
+* Alakaya göre sıralama (ALFABEYE GÖRE DEĞİL) yapın.
+* Vendor ön eklerinde girintiler kullanarak ana ozelligi ve degerleri hizalı hale getirin.
+* DOM görüntüsüne ayna tutarcasına çocuk (child) seçicileri girinti ile kullanın.
+* Always include the final semi-colon in a ruleset $todo
 
-A brief example:
+Kısa bir örnek:
 
-    .widget{
+    .bilesen{
         padding:10px;
         border:1px solid #BADA55;
         background-color:#C0FFEE;
@@ -180,7 +177,7 @@ A brief example:
            -moz-border-radius:4px;
                 border-radius:4px;
     }
-        .widget-heading{
+        .bilesen-baslik{
             font-size:1.5rem;
             line-height:1;
             font-weight:bold;
@@ -190,16 +187,12 @@ A brief example:
             padding:0.25em;
         }
 
-Here we can see that `.widget-heading` must be a child of `.widget` as we have
-indented the `.widget-heading` ruleset one level deeper than `.widget`. This is
-useful information to developers that can now be gleaned just by a glance at the
-indentation of our rulesets.
+Örnekte gördüğünüz gibi `.bilesen-baslik`,  `.bilesen` elementinin çocuğu olmalı, bu nedenden ötürü de `.bilesen-baslik` kural bütününde `.bilesen`a göre bir level daha derin girinti kullandık. Bu sayede bir başka geliştirici tek bakışta girintiler sayesinde DOMu gözünde canlandırabilir.
 
-We can also see that `.widget-heading`’s declarations are ordered by their
-relevance; `.widget-heading` must be a textual element so we begin with our
-text rules, followed by everything else.
 
-One exception to our multi-line rule might be in cases of the following:
+Ayrıca `.bilesen-baslik`'in bildirimlerinin alakalarına göre sıralandığını görebiliriz, `.bilesen-baslik` isminden de belli olduüu gibi metne dair bir element olmalı, dolayısıyla metin kurallarını tanımlayarak başladık, ardından diğer tanımlamaları yaptık.
+
+Izgara (grid) yapı tanımlamaları, daha önce belirttiğim 'Her satırda bir özellik tanımlama' kuralının istisnası sayılabilir. Örneğin:
 
     .t10    { width:10% }
     .t20    { width:20% }
@@ -215,10 +208,10 @@ One exception to our multi-line rule might be in cases of the following:
     .t80    { width:80% }
     .t90    { width:90% }
 
-In this example (from [inuit.css’s table grid system](https://github.com/csswizardry/inuit.css/blob/master/inuit.css/partials/base/_tables.scss#L88))
-it makes more sense to single-line our CSS.
 
-## Naming conventions
+[inuit.css’s tablo ızgara sistemi](https://github.com/csswizardry/inuit.css/blob/master/inuit.css/partials/base/_tables.scss#L88)nden alınan bu örnekte tek satırda tanımlamaları yapmak daha mantıklı olacaktır.
+
+## İsimlendirme Düzeni
 
 For the most part I simply use hyphen delimited classes (e.g. `.foo-bar`, not
 `.foo_bar` or `.fooBar`), however in certain circumstances I use BEM (Block,
