@@ -1,13 +1,15 @@
-# General CSS notes, advice and guidelines
+# Genel CSS notları, tavsiyeleri ve prensipler
 
 ---
 
-## Translations
+## Çeviriler
 
 * [Russian](https://github.com/matmuchrapna/CSS-Guidelines/blob/master/README%20Russian.md)
 * [Chinese](https://github.com/chadluo/CSS-Guidelines/blob/master/README.md)
 * [French](https://github.com/flexbox/CSS-Guidelines/blob/master/README.md)
 * [Japanese](https://github.com/kiwanami/CSS-Guidelines/blob/master/README.ja.md)
+* [Türkçe](https://github.com/rssems/CSS-Guidelines/blob/master/README.md)
+* 
 
 ---
 
