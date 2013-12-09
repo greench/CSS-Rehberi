@@ -4,36 +4,34 @@
 
 ## Çeviriler
 
-* [Russian](https://github.com/matmuchrapna/CSS-Guidelines/blob/master/README%20Russian.md)
-* [Chinese](https://github.com/chadluo/CSS-Guidelines/blob/master/README.md)
-* [French](https://github.com/flexbox/CSS-Guidelines/blob/master/README.md)
-* [Japanese](https://github.com/kiwanami/CSS-Guidelines/blob/master/README.ja.md)
-* [Türkçe](https://github.com/rssems/CSS-Guidelines/blob/master/README.md)
-* 
+* [English](https://github.com/csswizardry/CSS-Guidelines/blob/master/README.md)
+* [русский](https://github.com/matmuchrapna/CSS-Guidelines/blob/master/README%20Russian.md)
+* [中国的](https://github.com/chadluo/CSS-Guidelines/blob/master/README.md)
+* [Français](https://github.com/flexbox/CSS-Guidelines/blob/master/README.md)
+* [日本の](https://github.com/kiwanami/CSS-Guidelines/blob/master/README.ja.md)
+* [Türkçe](https://github.com/rssems/CSS-Rehberi/blob/master/README.md)
+
 
 ---
 
-In working on large, long running projects with dozens of developers, it is
-important that we all work in a unified way in order to, among other things:
 
-* Keep stylesheets maintainable
-* Keep code transparent and readable
-* Keep stylesheets scalable
+Birçok geliştirici ile birlikte büyük ve uzun vadeli projeler üzerinde çalışırken, hepimizin farklı alanlar üzerinde de olsa belirli bir düzen halinde çalışmamız oldukça önemlidir, bunun için de:
 
-There are a variety of techniques we must employ in order to satisfy these
-goals.
+* Stil dosyalarını sürdürülebilir ve ölçeklenebilir tutmak
+* Kodun okunabilir ve anlaşılır olması 
 
-The first part of this document will deal with syntax, formatting and CSS
-anatomy, the second part will deal with approach, mindframe and attitude toward
-writing and architecting CSS. Exciting, huh?
+gerekmektedir. Bu ideali gerçekleştirmek için uygulanması gereken çeşitli teknikler bulunmaktadır. 
 
-## Contents
+Bu dökümanın ilk bölümünde sözdizimi (syntax), biçim (formatting) ve CSS yapısı ile ilgileneceğiz, ikinci bölümde ise yaklaşım, akılcı bakış ve CSS yazma ve mimarisine yönelik fikirler ile ilgileneceğiz. Heyecan verici, huh?
 
-* [CSS document anatomy](#css-document-anatomy)
-  * [General](#general)
-  * [One file vs. many files](#one-file-vs-many-files)
-  * [Table of contents](#table-of-contents)
-  * [Section titles](#section-titles)
+
+## İçerik
+
+* [CSS döküman yapısı](#css-dokuman-yapisi)
+  * [Genel](#genel)
+  * [Tek ve çok dosya karşılaştırması](#tek-ve-cok-dosya-karsilastirmasi)
+  * [İçindekiler](#icindekiler)
+  * [Bölüm başlıkları](#bolum-basliklari)
 * [Source order](#source-order)
 * [Anatomy of rulesets](#anatomy-of-rulesets)
 * [Naming conventions](#naming-conventions)
@@ -64,70 +62,61 @@ writing and architecting CSS. Exciting, huh?
 
 ---
 
-## CSS Document Anatomy
+## CSS Döküman Yapısı
 
-No matter the document, we must always try and keep a common formatting. This
-means consistent commenting, consistent syntax and consistent naming.
+Döküman farketmezsizin, biz her zaman ortak biçimlendirme kullanmaya çalışmalıyız. Bunun anlamı tutarlı yorumlama, tutarlı sözdizimi ve tutarlı isimlendirmedir.
 
-### General
+### Genel
 
-Limit your stylesheets to a maximum 80 character width where possible.
-Exceptions may be gradient syntax and URLs in comments. That’s fine, there’s
-nothing we can do about that.
+Stil dosyalarınızı en fazla 80 karakter genişlikte limitlemeye çalışın.
+Degrade (gradient) ve yorum olarak eklenmiş linkler istisna olarak kabul edilebilir, ki bu konuda yapabileceğimiz bir şey yok.
 
-I prefer four (4) space indents over tabs and write multi-line CSS.
+Ben elementlerde birden çok özellik tanımlarken veya tab kullanımında dört (4) boşluk girinti (indent) kullanmayı tercih ediyorum.
 
-### One file vs. many files
+### Tek ve çok dosya karşılaştırması
 
-Some people prefer to work with single, large files. This is fine, and by
-sticking to the following guidelines you’ll encounter no problems. Since moving
-to Sass I have started sharding my stylesheets out into lots of tiny includes.
-This too is fine… Whichever method you choose, the following rules and
-guidelines apply. The only notable difference is with regards our table of
-contents and our section titles. Read on for further explanation…
+Bazı insanlar tek ve büyük bir dosya ile çalışmayı tercih ederler ve bunda herangi problem olmamakla birlikte aşağıdaki rehberi takip ettiğiniz taktirde hiçbir problemle karşılaşmamaya devam edeceksiniz. 
 
-### Table of contents
+Sass'a geçtiğimden beri ben stil dosyalarımı olabildiğince küçük parçaların birleşimi halinde tutmaya başladım ve bunda da herangi bir problem yok. 
 
-At the top of stylesheets, I maintain a table of contents which will detail the
-sections contained in the document, for example:
+Hangi yöntemi kullanırsanız kullanın, aşağıdaki kurallar ve prensipler geçerli olacaktır. Tek farkın içindekiler bölümü ve bölüm başlıkları olacağını birazdan göreceksiniz.
+
+
+### İçindekiler
+
+Stil dosyasının en başında, bölümlerin başlıklarının ve açıklamalarının yer aldığı içindekiler bölümünü sürekli güncel tutuyorum, örneğin:
 
     /*------------------------------------*\
-        $CONTENTS
+        $ICINDEKILER
     \*------------------------------------*/
     /**
-     * CONTENTS............You’re reading it!
-     * RESET...............Set our reset defaults
-     * FONT-FACE...........Import brand font files
+     * ICINDEKILER...........Okumakta oldugun sey!
+     * NORMALIZE.............Tarayicilari tutarli ve cagdas olmaya zorlamaca
+     * FONT-FACE.............Kullanilan ozel font dosyalarini tanimlamaca
      */
 
-This will tell the next developer(s) exactly what they can expect to find in
-this file. Each item in the table of contents maps directly to a section title.
+Bu geliştiricilere dosyada tam olarak neyi bulabileceklerini belirtmekte. İçindekiler bölümündeki her bir öge, ilgili bölüm başlılığı ile bire-bir eşleşmektedir.
 
-If you are working in one big stylesheet, the corresponding section will also be
-in that file. If you are working across multiple files then each item in the
-table of contents will map to an include which pulls that section in.
+Eğer tek ve büyük bir stil dosyası üzerinde çalışıyorsanız, benzer bir yapı kullanıyor olacaksınız. Eğer farklı dosyalar bütünü ile çalışıyorsanız içindekiler bölümünde ilgili çağırdığı dosyaları da belirtmelisiniz.
 
-### Section titles
+### Bölüm başlıkları
 
-The table of contents would be of no use unless it had corresponding section
-titles. Denote a section thus:
+İçindekiler bölümündeki başlıklar ile bölüm başlıkları eşleşmezse tamamen anlamsız olacaktır. Bir bölümü bu şekilde gösterebilirsiniz:
 
     /*------------------------------------*\
-        $RESET
+        $NORMALIZE
     \*------------------------------------*/
 
-The `$` prefixing the name of the section allows us to run a find ([Cmd|Ctrl]+F)
-for `$[SECTION-NAME]` and **limit our search scope to section titles only**.
+Önüne eklediğimiz `$` ile aramalarımızda ([Cmd|Ctrl]+F), `$[BOLUM-ISMI]` sorgusu ile **kapsamımızı bölüm başlıkları ile limitleyebiliyor** olacağız.
 
-If you are working in one large stylesheet, you leave five (5) carriage returns
-between each section, thus:
+Eğer tek ve büyük bir stil dosyası üzerinde çalışıyorsanız, her bölüm arasına beş (5) satır boşluk bırakınız, örneğin:
 
     /*------------------------------------*\
-        $RESET
+        $NORMALIZE
     \*------------------------------------*/
-    [Our
-    reset
-    styles]
+    [Normallesmesi
+    gereken
+    stiller]
 
 
 
@@ -137,11 +126,10 @@ between each section, thus:
         $FONT-FACE
     \*------------------------------------*/
 
-This large chunk of whitespace is quickly noticeable when scrolling quickly
-through larger files.
+Bu boşluk hızlıca scroll ettiğimizde bölüm sonlarının farkedilebilirlir olmasını sağlayacaktır.
 
-If you are working across multiple, included stylesheets, start each of those
-files with a section title and there is no need for any carriage returns.
+Eğer çoklu ve içe çağrılan stil dosyaları ile çalışıyorsunuz, her bir dosya için bölüm başlığı oluşturarak başlayın fakat bu durumda bölümler arası boşluk kullanmanıza gerek yoktur.
+
 
 ## Source order
 
