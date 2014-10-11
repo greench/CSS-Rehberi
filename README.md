@@ -99,6 +99,8 @@ Bu geliştiricilere dosyada tam olarak neyi bulabileceklerini belirtmekte. İçi
 
 Eğer tek ve büyük bir stil dosyası üzerinde çalışıyorsanız, benzer bir yapı kullanıyor olacaksınız. Eğer farklı dosyalar bütünü ile çalışıyorsanız içindekiler bölümünde ilgili çağırdığı dosyaları da belirtmelisiniz.
 
+> Çevirmenin Notu: Orijinal metinde reset.css kullanılarak anlatım yapılmasına rağmen normalize.css 'i desteklediğimden ötürü ilgili yerler tarafımca düzenlenerek çevrilmiştir ve çevrilmekte olacaktır.
+
 ### Bölüm başlıkları
 
 İçindekiler bölümündeki başlıklar ile bölüm başlıkları eşleşmezse tamamen anlamsız olacaktır. Bir bölümü bu şekilde gösterebilirsiniz:
@@ -187,7 +189,7 @@ Kısa bir örnek:
             padding:0.25em;
         }
 
-Örnekte gördüğünüz gibi `.bilesen-baslik`,  `.bilesen` elementinin çocuğu olmalı, bu nedenden ötürü de `.bilesen-baslik` kural bütününde `.bilesen`a göre bir level daha derin girinti kullandık. Bu sayede bir başka geliştirici tek bakışta girintiler sayesinde DOMu gözünde canlandırabilir.
+Örnekte gördüğünüz gibi `.bilesen-baslik`,  `.bilesen` elementinin çocuğu olmalı, bu nedenden ötürü de `.bilesen-baslik`ı, `.bilesen`e göre bir level daha derin girintide kullandık. Bu sayede bir başka geliştirici tek bakışta girintiler sayesinde DOMu gözünde canlandırabilir.
 
 
 Ayrıca `.bilesen-baslik`'in bildirimlerinin alakalarına göre sıralandığını görebiliriz, `.bilesen-baslik` isminden de belli olduüu gibi metne dair bir element olmalı, dolayısıyla metin kurallarını tanımlayarak başladık, ardından diğer tanımlamaları yaptık.
@@ -213,15 +215,13 @@ Izgara (grid) yapı tanımlamaları, daha önce belirttiğim 'Her satırda bir �
 
 ## İsimlendirme Düzeni
 
-For the most part I simply use hyphen delimited classes (e.g. `.foo-bar`, not
-`.foo_bar` or `.fooBar`), however in certain circumstances I use BEM (Block,
-Element, Modifier) notation.
+Ben çoğunlukla tire ile ayrılmış classlar kullanıyorum (örn. '.foo-bar' fakat '.foo_bar' veya '.fooBar' değil), ancak belirli koşullarda BEM (Block, Element, Modifier) metodunu da kullanmaktayım.
 
-<abbr title="Block, Element, Modifier">BEM</abbr> is a methodology for naming
-and classifying CSS selectors in a way to make them a lot more strict,
-transparent and informative.
+> Çevirmenin Notu: Metni mouse ile üzerinde çift tıklayarak seçmek istediğinizde `_` (alttan tire) ile `.foo_bar` şeklinde kullandıysanız hepsini, `-` (normal tire) ile `.foo-bar` şeklinde ayırdaysanız tıkladığınız alana göre `foo` veya `bar` metnini seçecektir. Temel anlamda `_` ile `-` arasındaki fark budur ve kullanıcı uzun vadede kullanma şekline göre seçimini kendi yapmalıdır.
 
-The naming convention follows this pattern:
+<abbr title="Block, Element, Modifier">BEM</abbr>, CSS seçicilerini isimlendirme ve sınıflandırma için kullanılan çok daha kesin, şeffaf ve bilgilendirici bir yöntemdir.  
+
+Adlandırma kuralı şu şekildedir:
 
     .block{}
     .block__element{}
